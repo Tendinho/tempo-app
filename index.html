@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Previsão do Tempo</title>
+
+    <link rel="stylesheet" href="CSS/css.css" >
+
+
+
+</head>
+
+
+<body>
+    
+<div class="cartao">
+
+    <div class="procurar">
+        <input type="text"  placeholder="Coloque o nome da cidade"
+        spellcheck="false">
+        <button>
+            <img src="Img/search.svg" width="16px" height="16px">
+        </button>
+    </div>
+    <div class="Erro">
+        <p>
+            Cidade Inválida
+        </p>
+    </div>
+    <div classe = "tempo">
+        <img src="Img/sun_behind_cloud.svg" class="icon-tempo">
+        <h1 class="temperatura">
+            22°c
+        </h1>
+        <h2 class="cidade">
+            Luanda
+        </h2>
+        <div class="detalhes">
+            
+            <div class="frio">
+                <img src="/Img/temperature_sensitive.svg">
+                <div>
+                    <p class="Humidade">
+                        50%
+                    </p>
+                    <p>
+                        Humidade
+                    </p>
+                </div>
+            </div>
+            <div class="frio">
+                <img src="/Img/windy_weather.svg">
+                <div>
+                    <p class="Vento">
+                       15 Km/h
+                    </p>
+                    <p>
+                        Vento
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<script>
+
+    const apiKey= "b9be7aa6ba0f4b1a8205e34471cb5d4e";
+    const apiUrl= "https://api.openweathermap.org/data/2.5/weather?units=metric&q="; 
+
+    const procuraCaixa = document.querySelector(".procurar input");
+    const procuraBtn = document.querySelector(".procurar button");
+    const tempoIcon = document.querySelector(".icon-tempo");
+
+    async function checkWeather(cidade){
+        const response = await fetch(apiUrl + cidade + `&appid=${apiKey}`);  
+
+        if(response.status == 404){
+
+            document.querySelector(".Erro").style.display = "block";
+            document.querySelector(".tempo").style.display = "none";
+
+        } else {
+
+
+       
+
+            var data = await response.json();
+
+            console.log(data);
+
+        document.querySelector(".cidade").innerHTML = data.name;
+        document.querySelector(".temperatura").innerHTML = Math.round(data.main.temp) + "°C";
+        document.querySelector(".Humidade").innerHTML = data.main.humidity + "%";
+        document.querySelector(".Vento").innerHTML = data.wind.speed + "Km/h";
+
+        if(data.weather[0].main == "Nuvem"){
+            tempoIcon.src = "Img/sun_behind_cloud.svg";
+        } 
+        else if(data.weather[0].main == "Nuvem"){
+            tempoIcon.src = "Img/sun_behind_cloud.svg";
+        }
+        else if(data.weather[0].main == "Limpo"){
+            tempoIcon.src = "Img/summer.svg";
+        }
+        else if(data.weather[0].main == "Chuva"){
+            tempoIcon.src = "Img/rain_cloud.svg";
+        }
+
+        document.querySelector(".tempo").style.display = "block";
+        document.querySelector(".Erro").style.display = "none";
+    } 
+
+    }
+
+    procuraBtn.addEventListener("click", ()=>{
+
+        checkWeather(procuraCaixa.value); 
+
+    })
+
+    
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,149 @@
+*{
+
+    margin: 0;
+    padding: 0;
+    font-family: 'Courier New', Courier, monospace;
+    box-sizing: border-box;
+
+}
+
+body{
+
+    background: #222;
+    min-height: 100vh;
+    background-image: url(/Img/wp12886494-nature-4k-anime-wallpapers.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    position: relative;
+    transition: 500ms;
+    opacity: 1;
+    display: flex;
+
+
+}
+
+.cartao{
+
+    width: 90%;
+    max-width: 470px;
+    
+    color: #fff;
+    margin: 100px auto 0;
+    border-radius: 20px;
+    padding: 40px 35px;
+    text-align: center;
+    
+
+}
+
+.procurar{
+
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: -80px;
+
+}
+
+.procurar input{
+
+    border: 0;
+    outline: 0;
+    background: #ebfffc;
+    color: #555;
+    padding: 10px 25px;
+    height: 60px;
+    border-radius: 30px;
+    flex: 1;
+    margin-right: 16px;
+    font-size: 18px;
+
+}
+
+.procurar button{
+
+    border: 0;
+    outline: 0;
+    background: #192e2b;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+
+}
+
+.procurar button img{
+    width: 16px;
+}
+
+.icon-tempo{
+
+    width: 170px;
+    margin-top: 70px;
+    margin-left: 10px;
+
+}
+
+tempo h1{
+
+    font-size: 800px;
+    font-weight: 500px;
+    
+
+}
+
+tempo h2{
+
+    font-size: 45px;
+    font-weight: 400;
+    margin-top: -10px;
+    
+}
+
+.detalhes{
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-top: 50px;
+     
+}
+
+.frio{
+
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+
+.frio img {
+
+    width: 40px;
+    margin-right: 10px;
+    
+}
+
+.Humidade, .Vento{
+
+    font-size: 28px;
+    margin-top: -6px;
+
+}
+
+.tempo{
+    justify-content: space-between;
+}
+
+.Erro{
+
+    text-align: left;
+    margin-left: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+    display: none;
+
+}
